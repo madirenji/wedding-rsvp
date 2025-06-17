@@ -84,9 +84,9 @@
 
     <h2>RSVP Form</h2>
     <form id="rsvpForm">
+      <input type="number" name="guests" placeholder="Number of guests (Max 2)" min="1" max="2" required />
       <input type="text" name="name" placeholder="Your Full Name" required />
-      <input type="email" name="email" placeholder="Your Email Address" required />
-      <select name="attendance" required>
+            <select name="attendance" required>
         <option value="">Will you attend?</option>
         <option value="Yes">Yes, I will attend</option>
         <option value="No">Sorry, can't make it</option>
@@ -108,13 +108,13 @@
 
       const form = e.target;
       const data = {
+        guests: form.guests.value,
         name: form.name.value,
-        email: form.email.value,
         attendance: form.attendance.value,
         message: form.message.value
       };
 
-      fetch("https://script.google.com/macros/s/AKfycbxDM1WE5wUEDGulkCojzGJ2Ms9lxxXexBTRRVMDN_-YeRUTYT5n2VpVEDW4r-wCeK-W/exec", {
+      fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
